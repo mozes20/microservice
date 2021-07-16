@@ -8,7 +8,6 @@ public class SiliconFragment extends Item
 
     public SiliconFragment(Properties properties) {
         super(properties);
-        prop = properties;
     }
 
     public String getItemName()
