@@ -2,11 +2,13 @@ package microservice_group.mcrsrvc;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.IMultiPartPredicateBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -18,12 +20,17 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
+//OWN IMPORTS
+import net.minecraft.item.Item;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("mcrsrvc")
 public class Mcrsrvc {
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    public static Item silicon_fragment_item;
+    Item.Properties item_properties = new Item.Properties();
 
     public Mcrsrvc() {
         // Register the setup method for modloading
@@ -43,6 +50,10 @@ public class Mcrsrvc {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+        silicon_fragment_item = new SiliconFragment(item_properties);
+
+        GameRegistry.registerItem(silicon_fragment_item, "Silicon fragment");
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
