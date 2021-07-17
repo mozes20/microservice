@@ -8,15 +8,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,20 +30,10 @@ public class Mcrsrvc {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "microservices";
 
-    //-------------------------------------------------------------------------------
-    //public static Item silicon_fragment_item;
-
-    //PROPERTIES---------------------------------------------------------------------
-
-    //Item.Properties silicon_fragment_property = new Item.Properties();
-
-
-
-    //------------------------------------------------------------------------------
-
     public Mcrsrvc() {
         // Register the setup method for modloading
-        IEventBus setup_bus = FMLJavaModLoadingContext.get().getModEventBus(); setup_bus.addListener(this::setup);
+        IEventBus setup_bus = FMLJavaModLoadingContext.get().getModEventBus();
+        setup_bus.addListener(this::setup);
 
         // Register the enqueueIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
@@ -66,19 +53,6 @@ public class Mcrsrvc {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
-        //---------------------------------------------------------------------
-        //silicon_fragment_property.maxStackSize(64);
-
-
-
-        //---------------------------------------------------------------------
-
-        //silicon_fragment_item = new SiliconFragment(silicon_fragment_property);
-        //GameRegistry.registerItem(silicon_fragment_item, "Silicon fragment");
-
-
-        //---------------------------------------------------------------------
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
