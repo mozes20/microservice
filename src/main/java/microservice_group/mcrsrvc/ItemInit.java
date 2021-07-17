@@ -12,4 +12,7 @@ public class ItemInit
 
     public static final RegistryObject<Item> silicon_fragment = item_register.register("Silicon Fragment",
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
+
+    public static final RegistryObject<Item> silicon = item_register.register("Silicon",
+            () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
 }
