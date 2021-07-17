@@ -10,9 +10,12 @@ public class ItemInit
 {
     public static final DeferredRegister<Item> item_register = DeferredRegister.create(ForgeRegistries.ITEMS, Mcrsrvc.MOD_ID);
 
-    public static final RegistryObject<Item> silicon_fragment = item_register.register("Silicon Fragment",
+    public static final RegistryObject<Item> silicon_fragment = item_register.register("Silicon fragment",
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
 
     public static final RegistryObject<Item> silicon = item_register.register("Silicon",
+            () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
+
+    public static final RegistryObject<Item> sand_dust = item_register.register("Sand dust",
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
 }
