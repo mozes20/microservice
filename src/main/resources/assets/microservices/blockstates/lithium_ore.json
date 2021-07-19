@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model": "microservices:block/lithium_ore"}
+  }
+}

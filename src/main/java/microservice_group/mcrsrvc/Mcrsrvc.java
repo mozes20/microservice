@@ -44,6 +44,8 @@ public class Mcrsrvc {
 
 
         ItemInit.item_register.register(setup_bus);
+        BlockInit.block_register.register(setup_bus);
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
